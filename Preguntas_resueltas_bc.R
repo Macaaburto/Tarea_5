@@ -2,25 +2,25 @@
 Con las funciones entregadas anteriormente realice la extracción del título de la
 noticia, y luego la noticia, separe las palabras y almacenarlas en una lista."
 
-###################Extracción de titulo#################
+"###################Extracción de titulo#################"
 
-#usando la libreria rvest
-# install.packages("rvest"), para descargarla 
+"usando la libreria rvest
+install.packages(rvest),para descargarla"
 
 library("rvest")
 
-#inicializando la variable archivo con el nombre de mi pagina
+"inicializando la variable archivo con el nombre de mi pagina"
 archivo<-"Tarea_5.html"
 
-#leyendo el HTML del archivo
+"leyendo el HTML del archivo"
 webpage <- read_html(archivo)
 
 html_nodes(webpage,".naranjo")
 
-#Extrayendo contenido en la clase naranjo
+"Extrayendo contenido en la clase naranjo"
 contenedor_titulo <- html_nodes(webpage,"h1")
 
-#Pasando el titulo a texto 
+"Pasando el titulo a texto"
 titulo <- html_text(contenedor_titulo)
 print(titulo)
 
@@ -119,25 +119,25 @@ archivo<-"Tarea_5final.html"
 webpage <- read_html(archivo)
 
 
-# Extrayendo los elementos que contienen las tablas
+#Extrayendo los elementos que contienen las tablas
 tablaProductos <- html_nodes(webpage, ".productos")
 
 #Extrayendo el contenido de la tabla a traves de tag
 contenedorDeTablas <- html_nodes(webpage, "table")
 
-# Extraccion informacion tabla 1
+#Extraccion informacion tabla 1
 tabla1<-html_table(contenedorDeTablas[1][[1]])
 
-# Viendo el contenido de la posicion 1,2 de la tabla1
+#Viendo el contenido de la posicion 1,2 de la tabla1
 print(tabla1[1,2])
 
 # Extraccion informacion tabla 2
 tabla2<-html_table(contenedorDeTablas [2][[1]])
 
-# Viendo el contenido de la posicion 2,2 de la tabla2
+#Viendo el contenido de la posicion 2,2 de la tabla2
 print(tabla2[2,2])
 
-# Limpiando $ comas y cambios de puntos por coma
+#Limpiando $ comas y cambios de puntos por coma
 tabla1$Precio <- gsub("\\$","",tabla1$Precio)
 tabla1$Precio <- gsub("[.]","",tabla1$Precio)
 tabla1$Precio <- as.numeric(gsub(",",".",tabla1$Precio))
@@ -146,7 +146,7 @@ tabla2$Precio <- gsub("\\$","",tabla2$Precio)
 tabla2$Precio <- gsub("[.]","",tabla2$Precio)
 tabla2$Precio <- as.numeric(gsub(",",".",tabla2$Precio))
 
-# Combinando los dos data frames y creando un tercer data frame
+#Combinando los dos data frames y creando un tercer data frame
 tablaMerge <- rbind(tabla1,tabla2)
 
 
