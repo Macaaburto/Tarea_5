@@ -1,11 +1,6 @@
 ﻿# Tarea_5
 Pagina web y extracción de datos 
 
-# Tarea_Nro5
-Pagina Web
-
-Interrogantes de la Tarea N° 5 
-
 Pregunta a.
 
  ¿Se dieron cuenta de el suceso extraño respecto al tag “img”, analice en qué se
